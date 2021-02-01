@@ -1,0 +1,243 @@
+<div class="container">
+   <div class="row">
+      <div class="col-md-12">
+         <div id="content" class="content content-full-width">
+            <!-- begin profile -->
+            <div class="profile">
+               <div class="profile-header">
+                  <!-- BEGIN prFofile-header-cover -->
+                  <div class="profile-header-cover"></div>
+                  <!-- END profile-header-cover -->
+                  <!-- BEGIN profile-header-content -->
+                  <div class="profile-header-content">
+                     <!-- BEGIN profile-header-img -->
+                     <div class="profile-header-img">
+                        <img src="assets/profile-img/user_img.png" alt="">
+                     </div>
+                     <!-- END profile-header-img -->
+                     <!-- BEGIN profile-header-info -->
+                     <div class="profile-header-info">
+                        <h4 class="m-t-10 m-b-5"> {{this.name}} </h4>
+                        <p class="m-b-10"> - </p>
+                        <a href="http://localhost:4200/" class="btn btn-sm btn-info mb-2" (click)="logOut()"> Home </a>
+                     </div>
+                     <!-- END profile-header-info -->
+                  </div>
+                  <!-- END profile-header-content -->
+                  <!-- BEGIN profile-header-tab -->
+                  <ul class="profile-header-tab nav nav-tabs">
+                     <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:4200/checkout">
+                           <span class="menu-title"> Checkout </span>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:4200/customer">
+                           <span class="menu-title"> My Profile </span>
+                        </a>
+                     </li>
+                  </ul>
+                  <!-- END profile-header-tab -->
+               </div>
+            </div>
+            <!-- end profile -->
+            <!-- begin profile-content -->
+            <div class="profile-content">
+               <!-- begin tab-content -->
+               <div class="tab-content p-0">
+                  <!-- begin #profile-post tab -->
+                  <div class="tab-pane fade active show" id="profile-post">
+                     <!-- begin timeline -->
+
+                     <!-- begin timeline-time -->
+                     <div class="timeline-time">
+                        <span class="date"> </span>
+                     </div>
+                     <!-- end timeline-time -->
+                     <!-- begin timeline-icon -->
+                     <div class="timeline-icon">
+                        <a href="javascript:;">&nbsp;</a>
+                     </div>
+                     <!-- end timeline-icon -->
+                     <!-- begin timeline-body -->
+                     <div class="timeline-body">
+
+                        <div class="timeline-content">
+
+                           <h3 style="padding-left: 20px;"><b>Items Selected</b></h3>
+                           <br>
+                        </div>
+                        <table align="center">
+                           <thead>
+
+                              <th>Item</th>
+                              <th>Title</th>
+                              <th>Price</th>
+
+
+                           </thead>
+                           <tbody *ngFor="let item of items; index as userno">
+                              <tr>
+
+                                 <td>
+                                    <img [src]="item.image" alt="" height="60%" width="70%" align="center">
+
+                                 </td>
+                                 <td align="center">{{item.title}}</td>
+                                 <td align="center">{{item.price}}</td>
+
+
+                                 <td align="center"><button type="button" class="click"
+                                       (click)="onDelete(userno, item.price, item.title)"><i class="fa fa-ban"
+                                          aria-hidden="true"></i> Delete
+                                    </button>
+                                    <!--(click)="plus(item)"-->
+                                 </td>
+
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- end timeline-body -->
+
+
+                     <!-- begin timeline-time -->
+                     <div class="timeline-time">
+                        <span class="date"> </span>
+                     </div>
+                     <!-- end timeline-time -->
+                     <!-- begin timeline-icon -->
+                     <div class="timeline-icon">
+                        <a href="javascript:;">&nbsp;</a>
+                     </div>
+                     <!-- end timeline-icon -->
+                     <!-- begin timeline-body -->
+                     <div class="timeline-body">
+
+                        <br>
+                        <br>
+                        <br>
+                        <hr>
+                        <h3 align="center"><b>Total Price</b></h3>
+                        <h4 align="center">R{{message}}</h4>
+
+                        <div class="timeline-content">
+
+                           <hr>
+                           <!--Form for payment-->
+
+                           <form form [formGroup]="formBill" (ngSubmit)="onSubmit()">
+                              <div id="tblWrapper">
+                                 <!--<h4><b>Contact Details</b></h4>
+                                 <input type="text" placeholder="First Name" class="box1" formControlName="fname" required>
+                                 <input type="text" placeholder="Last Name" class="box2" formControlName="lname" required>
+                                 <br>
+                                 <br>
+                                 <input type="email" placeholder="Enter your email" class="box3" formControlName="email" required>
+
+                                 <br>
+                                 <br>
+                                 <hr>
+                                 <br>-->
+
+
+                                 <h3><b>Billing Details</b>
+                                    <img src="assets/Background/visa.png" alt="" height="10%" width="10%" class="visa">
+                                 </h3>
+
+                                 <!--Card Number-->
+                                 <input  type="text" class="form-control" formControlName="cardNum"
+                                    placeholder="Card Number">
+
+                                 <div *ngIf="cardNum?.invalid && cardNum?.touched">
+                                    <small class="text-danger" *ngIf="cardNum?.errors?.required"> Card Number
+                                       Required</small>
+                                    <small class="text-danger" *ngIf="cardNum?.errors?.minlength">Card Number requires
+                                       16 numbers</small>
+                                 </div>
+                                 <!--Card Number-->
+
+                                 <br>
+                                 
+                                 <!--Expr Date-->
+                                 <input type="text" class="form-control" formControlName="date" placeholder="MM/YY"
+                                 >
+
+                                 <div *ngIf="date?.invalid && date?.touched">
+                                    <small class="text-danger" *ngIf="date?.errors?.required"> Expiration Date
+                                       Required</small>
+                                    <small class="text-danger" *ngIf="date?.errors?.minlength"> Expiration Date requires
+                                       4 numbers and a dash numbers</small>
+                                 </div>
+                                 <!--Expr Date-->
+
+                                 <br>
+                                 
+                                 <!--CVV-->
+                                 <input type="text" class="form-control" formControlName="cvv" placeholder="CVV">
+
+                                 <div *ngIf="cvv?.invalid && cvv?.touched">
+                                    <small class="text-danger" *ngIf="cvv?.errors?.required"> CVV is
+                                       Required</small>
+                                    <small class="text-danger" *ngIf="cvv?.errors?.minlength"> CVV requires 3
+                                       numbers</small>
+                                 </div>
+                                 <!--CVV-->
+                                 
+                                 <br>
+                                 <br>
+
+                                 <!--Card Name-->
+                                 <input  type="text" class="form-control" formControlName="cardName"
+                                    placeholder="Name On Card">
+
+                                 <div *ngIf="cardName?.invalid && cardName?.touched">
+                                    <small class="text-danger" *ngIf="cardName?.errors?.required"> Card Name is
+                                       Required</small>
+                                    <small class="text-danger" *ngIf="cardName?.errors?.minlength"> Card Name requires 3
+                                       or more letters</small>
+                                 </div>
+                                 <!--Card Name-->
+
+                                 <br>
+
+                                 <!--Zip code-->
+                                 <input type="text" class="form-control" formControlName="zip" placeholder="ZIP/Postal">
+                                 <div *ngIf="zip?.invalid && zip?.touched">
+                                    <small class="text-danger" *ngIf="zip?.errors?.required"> Card Name is
+                                       Required</small>
+                                    <small class="text-danger" *ngIf="zip?.errors?.minlength"> Card Name requires 3
+                                       numbers</small>
+                                 </div>
+                                 <!--Zip code-->
+
+                              </div>
+                              <br>
+                              <br>
+                              <div class="text-center">
+                                 <button class="btn btn-primary f-s-12 rounded-corner" type="submit"> Confirm Payment
+                                 </button>
+                              </div>
+                           </form>
+
+
+                        </div>
+                     </div>
+                     <!-- end timeline-body -->
+
+
+
+
+
+
+                     <!-- end timeline -->
+                  </div>
+                  <!-- end #profile-post tab -->
+               </div>
+               <!-- end tab-content -->
+            </div>
+            <!-- end profile-content -->
+         </div>
+      </div>
+   </div>
+</div>

@@ -1,0 +1,119 @@
+<!-- <h1> <img src="assets/Background/Logo Background.png" alt="Logo"  width="100%" height="100%"  ></h1> -->
+
+<div class="container">
+  <nav>
+    <a href="http://localhost:4200/landing" class="link">Home | </a>
+    <a href="http://localhost:4200/login" class="link">Sign In | </a>
+    <a href="http://localhost:4200/register" class="link">Sign Up</a>
+    <img src="assets/Background/LogoFr.png" alt="Zatch Shopping" width="30%" height="30%" style="float: right;">
+  </nav>
+  <br>
+  <hr>
+  <div class="gender">
+    <!--Buttons to navigate through the pages-->
+    <!--<a href="http://localhost:4200/shop" class="btn"> Shop</a>
+    <a href="http://localhost:4200/shopladies" class="btn">Shop For Ladies</a>
+    <a href="http://localhost:4200/shopmen" class="btn">Shop For Men</a>
+    !-- Topbar Search -->
+
+
+    <div class="input-group">
+      <input type="text" (click)="onToggle()" #myuser [placeholder]="Search" class="form-control" class="search">
+      <div class="input-group-append">
+        <br>
+       
+        <button class="btn btn-primary" type="submit" style="position: absolute; left: 95%; height: 40px;"
+          (click)="onSubmit(myuser)">
+          <i class="fas fa-search fa-sm"></i>
+        </button>
+      </div>
+    </div>
+
+    <br>
+    <br>
+
+  </div>
+  <table align="center" *ngFor="let item of items; index as itemNo">
+
+    <thead *ngIf=" this.userID == item.id">
+      <th>Item</th>
+      <th>Title</th>
+      <th>Availability</th>
+
+    </thead>
+    <tbody *ngIf=" this.userID == item.id">
+      <tr>
+        <td>
+          <img [src]="item.image" alt="" height="60%" width="70%" align="center">
+
+        </td>
+        <td align="center">{{item.title}}</td>
+        <td align="center">{{item.availability}}</td>
+      </tr>
+    </tbody>
+
+  </table>
+
+
+  <br>
+  <p>Welcome, here at Zatch Shopping we offer deals that were made just for you for both the ladies and the gents. <br>
+    All you have to do is join by signing up, and you can enjoy the deals we have for you.</p>
+  <mdb-carousel [animation]="'slide'">
+    <mdb-carousel-item>
+      <img class="d-block w-100" src="assets/Background/Lady1.png" alt="First slide">
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img class="d-block w-100" src="assets/Background/Man1.png" alt="Second slide">
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img class="d-block w-100" src="assets/Background/Lady2.png" alt="Third slide">
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img class="d-block w-100" src="assets/Background/Man2.png" alt="Third slide">
+    </mdb-carousel-item>
+
+    <mdb-carousel-item>
+      <img class="d-block w-100" src="assets/Background/Lady3.png" alt="First slide">
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img class="d-block w-100" src="assets/Background/Man3.png" alt="First slide">
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img class="d-block w-100" src="assets/Background/Lady4.png" alt="First slide">
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img class="d-block w-100" src="assets/Background/Man4.png" alt="First slide">
+    </mdb-carousel-item>
+
+  </mdb-carousel>
+</div>
+<br>
+<br>
+
+<footer>
+  <form class="text-center p-5">
+    <p style="vertical-align: middle; text-align: center;">We Offer Classic designs that will make you feel comfortable.
+    </p>
+
+    <p>Visit:</p>
+
+    <a href="https://www.facebook.com/" type="button" class="light-blue-text mx-2">
+      <mdb-icon fab icon="facebook"></mdb-icon>
+    </a>
+    <a href="https://twitter.com/" type="button" class="light-blue-text mx-2">
+      <mdb-icon fab icon="twitter"></mdb-icon>
+    </a>
+
+    <hr>
+
+  </form>
+
+  <h5 style="vertical-align: middle; text-align: center;"><a href="" style="color: white; ">Terms & Conditions</a> <br>
+    Apply</h5>
+  <br>
+ <!-- <br>
+  <a href="http://localhost:4200/shop" class="btn"> Shop</a>
+  <br>
+  <br>-->
+
+</footer>

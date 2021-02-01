@@ -1,0 +1,37 @@
+<div class="container">
+  <nav>
+    <a href="http://localhost:4200/adminlogin" class="link">Sign Out</a>
+    <img src="assets/Background/LogoFr.png" alt="Zatch Shopping" width="30%" height="30%" style="float: right;" >
+  </nav>
+
+  <br>
+  <hr>
+
+  <div class="container">
+
+    <table style="width:100%" align="center">
+      <thead>
+      <tr>
+          <td>Customer Id</td>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Email</td>
+          <td>Action</td>
+          
+          
+      </tr>
+      </thead>
+  
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.customer_id}}</td>
+          <td>{{user.firstname}}</td>
+          <td>{{user.lastname}}</td>
+          <td>{{user.email}}</td>
+          <td><button class="cancel" type="submit" name="delete" (click)="deleteUser(user.customer_id)">Delete User  <i class="fa fa-ban" aria-hidden="true"></i></button></td>   
+      </tr>
+      </tbody>    
+   </table>
+
+
+    </div>

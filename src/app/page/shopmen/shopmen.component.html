@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="wrapper">
+
+
+        <a href="http://localhost:4200/shop"><h3 class="link">Shop For Men
+            <a href="http://localhost:4200/checkout">
+                <img src="assets/Background/Cart.png" alt="Cart" width="10%" height="10%" style="float: right;"
+                    class="line"><span> {{itm}} </span></a>
+            <br>
+            <br>
+            <input type="text" [value]="message">
+            <hr>
+        </h3>
+        </a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-sm-4 pb-3" *ngFor="let item of items; index as userID">
+                <!-- Card -->
+                <mdb-card>
+                    <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                        <!-- Card img -->
+                        <mdb-card-img [src]="item.image" alt="Card image cap"></mdb-card-img>
+                        <a>
+                            <div class="mask"></div>
+                        </a>
+                    </div>
+                    <!--Card content-->
+                    <mdb-card-body>
+                        <!--Title-->
+                        <mdb-card-title>
+                            <h4>{{item.title}}</h4>
+                        </mdb-card-title>
+
+                        <!--Text-->
+                        <mdb-card-text>
+                            <h5 class="mb-0">Price:</h5>
+                            <p>R{{item.price}}</p>
+                        </mdb-card-text>
+                        <button type="button" class="click" (click)="plus(item)">Add To Cart <i
+                                class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                        <button *ngIf="item.numItems > 0" type="button" class="cancel" (click)="minus(item, userID)">Cancel <i
+                                class="fa fa-times-circle" aria-hidden="true"></i></button>
+                    </mdb-card-body>
+                </mdb-card>
+                <!-- Card -->
+            </div>
+        </div>
+
+        <form class="text-center border border-light p-5">
+            <mdb-card-body>
+
+   
+                <button (click)="logOut()" mdbBtn color="primary" mdbWavesEffect>Sign Out</button>
+            </mdb-card-body>
+            <br>
+            <br>
+
+            <p>Visit:</p>
+
+            <a href="https://www.facebook.com/" type="button" class="light-blue-text mx-2">
+                <mdb-icon fab icon="facebook"></mdb-icon>
+            </a>
+            <a href="https://twitter.com/" type="button" class="light-blue-text mx-2">
+                <mdb-icon fab icon="twitter"></mdb-icon>
+            </a>
+
+            <hr>
+
+        </form>
+
+
+    </div>
+</div>
+
+<!-- <router-outlet></router-outlet> -->
