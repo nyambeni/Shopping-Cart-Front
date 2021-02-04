@@ -10,8 +10,9 @@ import { CustomerComponent } from './page/profile/customer/customer.component';
 import { LoginComponent } from './page/authentication/login/login.component';
 import { UserRegisterComponent } from './page/register/user-register/user-register.component';
 import { AdminloginComponent} from './page/adminlogin/adminlogin.component';
-import {AdminviewComponent} from './page/adminview/adminview.component';
+import { AdminviewComponent } from './page/adminview/adminview.component';
 import { AuthGuard } from './page/auth/auth.guard';
+import { PageNotFoundComponent } from './page/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: "", component: LandingComponent },
@@ -25,7 +26,9 @@ const routes: Routes = [
   { path: "register", component: UserRegisterComponent },
   { path: "adminlogin", component: AdminloginComponent },
   { path: "adminview", component: AdminviewComponent},
-  { path: 'landing', component: LandingComponent}
+  { path: 'landing', component: LandingComponent},
+  { path: '', redirectTo: '/landing', pathMatch: 'full'},
+  { path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

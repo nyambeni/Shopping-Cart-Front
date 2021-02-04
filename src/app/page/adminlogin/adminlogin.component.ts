@@ -10,6 +10,8 @@ import { userValidator } from './../validation/userValidator';
 })
 export class AdminloginComponent implements OnInit {
 
+  isLoginError: boolean = false; //dont forget to make this 
+  
   constructor( private fb: FormBuilder  ) { }
 
   loginForm = this.fb.group({

@@ -26,7 +26,9 @@ import { MatSliderModule } from '@angular/material/slider';
 import { AdminloginComponent } from './page/adminlogin/adminlogin.component';
 import { AdminviewComponent } from './page/adminview/adminview.component';
 
-import { AuthGuard } from './page/auth/auth.guard'; 
+import { AuthGuard } from './page/auth/auth.guard';
+import { PageNotFoundComponent } from './page/page-not-found/page-not-found.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,8 @@ import { AuthGuard } from './page/auth/auth.guard';
     LoginComponent,
     AdminloginComponent,
     AdminviewComponent,
-    CustomerComponent
+    CustomerComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

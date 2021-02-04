@@ -10,7 +10,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class RegistrationService {
 
-  _url = "http://localhost:3000/api";
+  _url = "http://10.100.14.52:3000";
   constructor(private _http: HttpClient) { }
 
   private handleError(error: HttpErrorResponse) {
@@ -44,14 +44,16 @@ export class RegistrationService {
   }
 
   deleteUser(id: number){
-    return this._http.delete<any>(`${this._url}/${id}`)
+    const urlExtention: string = "/admin/delete"; 
+    return this._http.delete<any>(`${this._url}${urlExtention}/${id}`)
     .pipe(
       catchError(this.handleError)
     );
   }
 
   getAllUser(){
-    return this._http.get<any>(`${this._url}`);
+    const urlExtention: string = "/admin/customers";
+    return this._http.get<any>(`${this._url}${urlExtention}`);
   }
   
   getUser(id: number){

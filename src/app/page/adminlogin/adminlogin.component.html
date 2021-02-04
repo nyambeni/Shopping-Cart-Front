@@ -1,21 +1,20 @@
-<nav>
-    <a href="http://localhost:4200" class="link"  style="float: left;">Home | </a>
-  </nav>
-  <br>
 
-<div class="container d-flex justify-content-center align-items-center text-center">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mt-5" style="width: 18rem;" >
-        <hr class="bg-success"/>
-        <legend class="h3 text-success">Admin Sign In</legend>
-        <hr class="bg-success  mb-5"/>
+<div class="container vh-100 d-flex justify-content-center align-items-center text-center">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="shadow-lg p-3 mb-5 bg-white rounded" style="width: 18rem;" >
+        <a routerLink="/landing" class="link" >
+            <img src="assets/Background/LogoFr.png" alt="Zatch Shopping" width="80%" height="80%" class="mb-3">
+        </a>
+        <p class="h5 text-success my-2">Admin Sign In</p>
+        <hr class="bg-success mb-5 mt-0 pt-0"/>
+        <div *ngIf="isLoginError" class="text-danger form-group">
+           Incorrect username or password
+        </div>
         <input type="text" class="form-control" placeholder="Email Address" formControlName="emailAddress">
         <br>
         <input type="password" class="form-group form-control" placeholder="Password" formControlName="password">
         
         <div class="form-group">
-            <a href="patient.html" class="btn btn-success">Log In</a>
+            <button class="btn btn-success" type="submit">Log In</button>
         </div>
-      
-        
     </form>
 </div>

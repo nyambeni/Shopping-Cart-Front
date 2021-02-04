@@ -1,11 +1,17 @@
-<div class="container">
-  <nav>
-    <a href="http://localhost:4200/adminlogin" class="link">Sign Out</a>
-    <img src="assets/Background/LogoFr.png" alt="Zatch Shopping" width="30%" height="30%" style="float: right;" >
-  </nav>
+<!---
+<div class="container-fluid bg-white">
+  <div class="d-flex justify-content-between align-items-center py-1">
+    <div>
+      <a routerLink="/landing">
+        <img src="assets/Background/LogoFr.png" alt="Zatch Shopping" width="20%" height="20%">
+      </a>
+    </div >
+    <div>
+     <button class="btn btn-danger">logout</button>
+    </div>
+  </div>
 
-  <br>
-  <hr>
+  <hr class="bg-success mt-0"/>
 
   <div class="container">
 
@@ -32,6 +38,86 @@
       </tr>
       </tbody>    
    </table>
+</div>
+-->
+ 
+<!--coming Admin-->
 
+<header class="navbar sticky-top flex-md-nowrap p-0 ">
+  
+  <img src="assets/Background/LogoFr.png" alt="Zatch Shopping" width="20%" height="20%">
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <button class="btn btn-danger">logout</button>
+    </li>
+  </ul>
+</header>
+<hr class="bg-success mt-0 mb-2" />
 
-    </div>
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse ">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">
+              <span data-feather="home"></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file"></span>
+              Customers
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="shopping-cart"></span>
+              Orders
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="bar-chart-2"></span>
+              Devileries
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+      <h2>Customer</h2>
+      <div class="table-responsive">
+        <!--Insert table here-->
+        <table style="width:100%" align="center">
+          <thead>
+          <tr>
+              <td>Customer Id</td>
+              <td>First Name</td>
+              <td>Last Name</td>
+              <td>Email</td>
+              <td>Action</td>
+              
+              
+          </tr>
+          </thead>
+      
+          <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{user.customer_id}}</td>
+              <td>{{user.firstname}}</td>
+              <td>{{user.lastname}}</td>
+              <td>{{user.email}}</td>
+              <td><button class="cancel" type="submit" name="delete" (click)="deleteUser(user.customer_id)">Delete User  <i class="fa fa-ban" aria-hidden="true"></i></button></td>   
+          </tr>
+          </tbody>    
+       </table>
+      </div>
+
+    </main>
+  </div>
+</div>
