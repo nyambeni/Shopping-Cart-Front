@@ -1,21 +1,21 @@
-nav {
-      
-    line-height: 100%;
-    color: #fff;
-    font-family: Verdana, Arial, sans-serif;
-    line-height: 200%;
+.img-logo{
+  height: 65px;
+  text-align: center;
+}
 
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: none;
+  border: 1px solid #5cb85c;
+  outline-style: outset;
+  outline-color: #5cb85c;
+}
 
-    font-size: 15px;
-    
-  }
-  
-nav a {text-decoration: none;
-  }
+nav a {
+  text-decoration: none;
+}
+
 .link { color: #0ba06c; 
 } 
 .link:hover { color: #92d3a0; }
